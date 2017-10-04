@@ -22,7 +22,7 @@ public class TextCleaner {
 
     private static final Logger logger = LogManager.getLogger(TextCleaner.class);
 
-    private static final String UMLAUT = "äåüöÄÅÖÜßæÆøØáéíóúÁÉÍÑÓÚéÉèÈàÀùÙâêîôûÂÊÎÔÛçÇãÃáÁàÀâÂéÉêÊíÍõÕóÓôÔúÚüÜ";
+    private static final String UMLAUT = "äåüöÄÅÖÜßæÆøØáéíóúÁÉÍÑÓÚèÈàÀùÙâêîôûÂÊÎÔÛçÇãÃõÕ";
 
     private static final String MATCH_PATTERN = "([^a-zA-Z" + UMLAUT + "]*)([a-z" + UMLAUT + "A-Z-\\.]*[a-zA-Z"
             + UMLAUT + "])([^a-zA-Z" + UMLAUT + "]*[a-zA-Z" + UMLAUT + "]*)";

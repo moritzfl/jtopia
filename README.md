@@ -19,6 +19,7 @@ This project fixes the following issues of the original jtopia:
 - allows to define a custom list of stopwords instead of relying on a fixed set of English stopwords.
 - removed dependency to [StringHelpers](https://github.com/srijiths/StringHelpers)
 - removed dependency to apaches WordUtils as this was only used once in a situation where it could easily be replaced.
+- removed direct dependency to the Stanford Parser - it is called by reflection now if available in the classpath (the direct dependency of [srijiths/jtopia](https://github.com/srijiths/jtopia) technically results in a license-conflict as the Stanford Parser is GPL)
 - migrated other library dependencies to current versions
 
 Furthermore IntelliJ Idea is used for development resulting in some additional files in the repository. Logging was optimized for this IDE and migrated from log4j to log4j2. This should however not prevent you from using any other IDE if you choose to use this project in any form.

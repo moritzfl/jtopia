@@ -9,15 +9,15 @@ public class TaggedTerms {
 	/**
 	 * The Term.
 	 */
-	public String term;
+	private String term;
 	/**
 	 * The Tag.
 	 */
-	public String tag;
+	private String tag;
 	/**
 	 * The Norm.
 	 */
-	public String norm;
+	private String norm;
 
 	/**
 	 * Instantiates a new Tagged terms.

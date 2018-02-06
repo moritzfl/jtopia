@@ -174,18 +174,16 @@ public class TermsFilter {
      */
     private Map<String, ArrayList<Integer>> removeStopWordsAndPunctuations(
             Map<String, ArrayList<Integer>> filteredTerms) {
-        Iterator<String> keySetItr = filteredTerms.keySet().iterator();
-
 
         Set<String> stopWords = Configuration.getStopWords();
 
-        Map<String, ArrayList<Integer>> finalFilterdTerms = new HashMap<String, ArrayList<Integer>>();
+        Map<String, ArrayList<Integer>> finalFilterdTerms = new HashMap<>();
         Set keySet = filteredTerms.keySet();
 
         try {
             for (Object key : keySet) {
                 term = (String) key;
-                values = new ArrayList<Integer>();
+                values = new ArrayList<>();
                 values = filteredTerms.get(key);
                 // replacing extra whitespaces
                 term = term.replaceAll("\\s+", " ");
@@ -255,13 +253,12 @@ public class TermsFilter {
      */
     private Map<String, ArrayList<Integer>> removeDateTerms(
             Map<String, ArrayList<Integer>> filterdTerms) {
-        Iterator<String> keySetItr = filterdTerms.keySet().iterator();
 
-        Map<String, ArrayList<Integer>> finalFilterdTerms = new HashMap<String, ArrayList<Integer>>();
+        Map<String, ArrayList<Integer>> finalFilterdTerms = new HashMap<>();
         Set keySet = filterdTerms.keySet();
         for (Object key : keySet) {
             term = (String) key;
-            values = new ArrayList<Integer>();
+            values = new ArrayList<>();
             values = filterdTerms.get(key);
             String term = (String) key;
             String[] termArray = null;
@@ -294,12 +291,12 @@ public class TermsFilter {
         return finalFilterdTerms;
     }
 
-    private String capitalizeTerm(String text){
+    private String capitalizeTerm(String text) {
 
         String[] words = text.split(" ");
         StringJoiner joiner = new StringJoiner(" ");
 
-        for (String word: words) {
+        for (String word : words) {
             //Add capitalized words to joiner
             joiner.add(word.substring(0, 1).toUpperCase() + word.substring(1));
         }
@@ -336,8 +333,8 @@ public class TermsFilter {
     private String filterPunctuations(char[] ch, String term) {
         try {
             for (int index = 1; index < ch.length - 1; index++) {
-                char character = isPunctuation(ch[index]);
-                if (character == 'N') { // character is not punctuation
+                char character = ch[index];
+                if (!isPunctuation(character)) { // character is not punctuation
                     continue;
                 } else {
                     if (character != '\\') {
@@ -432,15 +429,14 @@ public class TermsFilter {
      * check a character is punctuation or not
      *
      * @param c the c
-     * @return 'N' if not punctuation
+     * @return true if punctuation
      */
-    public static char isPunctuation(char c) {
+    public static boolean isPunctuation(char c) {
         boolean flag = false;
         if (c == '.' || c == '@' || c == '_' || c == '&' || c == '/'
                 || c == '-' || c == '\\')
             flag = true;
-        if (flag == true)
-            return c;
-        return 'N';
+
+        return flag;
     }
 }

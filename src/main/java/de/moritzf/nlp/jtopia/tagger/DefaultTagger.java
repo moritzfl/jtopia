@@ -46,8 +46,7 @@ public class DefaultTagger {
 	 */
 
 	private TaggedTermsContainer correctDefaultNounTag(TermDocument termDoc) {
-		TaggedTermsContainer taggedContainer = new TaggedTermsContainer();
-		taggedContainer = termDoc.getTaggedContainer();
+		TaggedTermsContainer taggedContainer = termDoc.getTaggedContainer();
 		for(int i=0;i<taggedContainer.taggedTerms.size();i++) {
 			TaggedTerms taggedTerms = taggedContainer.taggedTerms.get(i);
 			String term = taggedTerms.getTerm();
@@ -82,7 +81,7 @@ public class DefaultTagger {
 			String norm = taggedTerms.getNorm();
 			String prevTerm = null;
 			if(i != 0) {
-				prevTerm = taggedContainer.taggedTerms.get(i-1).term;
+				prevTerm = taggedContainer.taggedTerms.get(i-1).getTerm();
 			}
 			if(tags.contains(tag) && (i ==0 || prevTerm.equals("."))) {
 				logger.debug("Tags {NNS,NNPS} contain tag : "+tag +" or prevTerm equals .");
